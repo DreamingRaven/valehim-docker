@@ -1,0 +1,30 @@
+# @Author: archer
+# @Date:   2019-09-13T12:52:06+01:00
+# @Last modified by:   archer
+# @Last modified time: 2021-02-12T17:52:26+00:00
+
+
+
+# set environment variables using .env file located in this same directory
+version: "3.8"
+
+services:
+
+  valheim:
+    build:
+      context: ./
+      # just the name of the dockerfile we want to use, happens to be normal
+      dockerfile: Dockerfile
+    # giving our build image a name for future reference
+    image: archer/valheim
+    # giving out image which spawns from our image a name
+    container_name: valheim_server
+    ports:
+      - 2456:2456/udp
+      - 2457:2457/udp
+      - 2458:2458/udp
+    volumes:
+      - ./save:/home/steam/save
+    stdin_open: true
+    tty: true
+    # restart: unless-stopped

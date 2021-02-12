@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# @Author: GeorgeRaven <archer>
+# @Date:   2020-05-22T10:08:17+01:00
+# @Last modified by:   archer
+# @Last modified time: 2021-02-12T17:51:08+00:00
+# @License: please see LICENSE file in project root
+
+mkdir save
+
+# # ineractive mode
+sudo docker build -t archer/valheim -f Dockerfile .
+sudo docker run -it archer/valheim
+
+# # OR
+
+# # non-interactive docker-compose version
+# sudo docker-compose up --build -d
+
+# use: docker-compose down, to stop it again
